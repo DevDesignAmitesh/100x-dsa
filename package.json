@@ -1,21 +1,12 @@
 {
   "name": "dsa",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DevDesignAmitesh/100x-dsa.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/DevDesignAmitesh/100x-dsa/issues"
-  },
-  "homepage": "https://github.com/DevDesignAmitesh/100x-dsa#readme"
+  "peerDependencies": {
+    "typescript": "^5"
+  }
 }
