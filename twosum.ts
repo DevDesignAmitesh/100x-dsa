@@ -1,33 +1,36 @@
-// question: two sum (leetcode)
+// function twoSum(nums: number[], target: number): number[] {
+  
+//     for (let i = 0; i < nums.length; i++) {
+//       for (let j = i + 1; j < nums.length; j++) {
+//         if (nums[i]! === target - nums[j]!) {
+//           return [i, j]
+//         }
 
-function twoSum(
-  nums: number[],
-  target: number,
-  type: "bruteforce" | "hashmap",
-) {
-  if (type === "bruteforce") {
-    for (let i = 0; i < nums.length; i++) {
-      for (let j = i + 1; j < nums.length; j++) {
-        if (nums[i]! + nums[j]! === target) {
-          return [i, j];
-        }
-      }
-    }
-  }
+//       }
+//     }
 
-  if (type === "hashmap") {
-    // value-index
+//     return []
+// };
+
+function twoSum(nums: number[], target: number): number[] {
     const map: Map<number, number> = new Map()
+  
     for (let i = 0; i < nums.length; i++) {
       map.set(nums[i]!, i);
     }
-
+    
     for (let i = 0; i < nums.length; i++) {
-      // revise this one and understand it properly
+      const x = target - nums[i]!;
+      if (map.has(x) && map.get(x) !== i) {
+        return [i, map.get(x)!]
+      }
     }
-  }
-  return [];
-}
 
-console.log(twoSum([3, 2, 3], 6, "bruteforce"));
-console.log(twoSum([3, 2, 3], 6, "hashmap"));
+    return []
+};
+
+
+// const response = twoSum([2,7,11,15], 9);
+// const response = twoSum([3,2,4], 6);
+const response = twoSum([3,3], 6);
+console.log("response ", response)
