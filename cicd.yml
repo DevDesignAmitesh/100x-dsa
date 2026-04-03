@@ -1,0 +1,39 @@
+name: CI-CD pipeline
+
+
+on:
+  push: 
+    branches: ["main", "dev"]
+
+jobs:
+
+  ci-cd:
+
+    name: deploy the final thing
+    runs-on: ubuntu@lates
+
+
+    steps:
+
+      - name: checkout repo
+      - uses: some/action
+
+      - name: install deps
+      - runs: npm install
+
+      - name: run tests
+      - runs: npm run tests
+
+      - name: build the code
+      - runs: npm run build
+
+      - name: push to docker hun
+      - secrets: 
+        - ${{SECRETS.DOCKER_USERNAME}}
+        - ${{SECRETS.DOCKER_PASSWORD}}
+
+
+      - name: deploy to ec2
+      - uses: apple/boy
+      - secrets:
+
