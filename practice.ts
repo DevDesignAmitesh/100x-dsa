@@ -75,19 +75,43 @@ function isAnagram(s: string, t: string): boolean {
 // console.log("response", res)
 
 function groupAnagrams(strs: string[]): string[][] {
-    const ans: Record<string, string[]> = {}
+  const ans: Record<string, string[]> = {};
 
-    for (let s of strs) {
-      const key = s.split("").sort().join("");
-      if (!ans[key]) {
-        ans[key] = []
-      }
-      ans[key].push(s)
+  for (let s of strs) {
+    const key = s.split("").sort().join("");
+    if (!ans[key]) {
+      ans[key] = [];
     }
+    ans[key].push(s);
+  }
 
-    return Object.values (ans);
-    
-};
+  return Object.values(ans);
+}
 
 // const res = groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]);
 // console.log("response ", res);
+
+function topKFrequent(nums: number[], k: number): number[] {
+
+  const data: Record<number, number[]> = {};
+
+  for (let n of nums) {
+    if (!data[n]) {
+      data[n] = []
+    }
+    data[n].push(n);
+  }
+
+  const arr: number[] = []
+  
+  for (let i = 0; i < k; i++) {
+    const elm = Object.values(data).sort((a, b) => b.length - a.length)[i]?.[0]
+    if (typeof elm !== "number") continue;
+    arr.push(elm)
+  }
+    
+  return arr;
+}
+
+const res = topKFrequent([3,0,1,0], 1)
+console.log("response ", res);
