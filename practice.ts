@@ -113,5 +113,6 @@ function topKFrequent(nums: number[], k: number): number[] {
   return arr;
 }
 
-const res = topKFrequent([3,0,1,0], 1)
-console.log("response ", res);
+// const res = topKFrequent([3,0,1,0], 1)
+// console.log("response ", res);
+
